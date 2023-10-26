@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
 
 namespace UploadImage.Models
 {
@@ -12,6 +13,8 @@ namespace UploadImage.Models
         public string Category { get; set; }
         [Required]
         public string Price { get; set; }
-        public string? Url { get; set; }
+
+        [ValidateNever]
+        public List<ProductImageUrl> ProductsImages { get; set; }
     }
 }

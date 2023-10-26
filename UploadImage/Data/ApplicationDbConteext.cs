@@ -11,6 +11,7 @@ namespace UploadImage.Data
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<ProductImageUrl> PrroductImageUrls { get; set; }
 
     }
 }

@@ -21,12 +21,13 @@
             <th>
                 @Html.DisplayNameFor(model => model.Price)
             </th>
-            <th>
+            @* <th>
                 @Html.DisplayNameFor(model => model.Url)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Url)
-            </th>
+            </th> *@
+            <th></th>
             <th></th>
         </tr>
     </thead>
@@ -43,7 +44,13 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-               <img style="width: 100px; height: 100px" src="@Html.DisplayFor(modelItem => item.Url)" />
+
+                @foreach (var imgUrl in item.ProductsImages)
+                {
+                   <img style="width: 100px; height: 100px" src="@Html.DisplayFor(modelItem => imgUrl.ImageUrl)" />
+                }
+
+               @* <img style="width: 100px; height: 100px" src="@Html.DisplayFor(modelItem => item.Url)" /> *@
             </td>
             <td>
                 <a asp-action="Upsert" asp-route-id="@item.Id">Edit</a> |
